@@ -1,0 +1,18 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Agregar productos
+{% endblock title %}
+
+{% block main %}
+
+{% for producto in productos %}
+
+<p>Producto: {{ producto.title }}</p>
+<p>Precio: {{ producto.price }}</p>
+
+{% endfor %}
+
+{% endblock main %}

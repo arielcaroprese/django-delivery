@@ -1,0 +1,20 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Agregar productos
+{% endblock title %}
+
+{% block main %}
+
+<form action="" method="POST">
+    {% csrf_token  %}
+    <p>Título de producto:</p>
+    <input type="text" name="title">
+    <p>Precio</p>
+    <input type="number" name="price">
+    <input type="submit" value="Guardar">
+</form>
+
+{% endblock main %}

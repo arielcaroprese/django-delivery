@@ -1,0 +1,19 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Agregar productos
+{% endblock title %}
+
+{% block main %}
+
+<form action="" method="POST">
+    {% csrf_token  %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Cargar por API">
+</form>
+
+{% endblock main %}

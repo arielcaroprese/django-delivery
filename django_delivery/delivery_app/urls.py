@@ -19,8 +19,7 @@ from delivery_app import views
 
 urlpatterns = [
     path('', views.inicio , name='inicio'),
-    path('nosotros/', views.nosotros, name='nosotros'),
-    path('servicios/', views.servicios, name='servicios'),
-    path('productos/', views.productos, name='productos'),
-    path('contacto/', views.contacto, name='contacto'),
+    path('formulario/', views.formulario, name='formulario'),
+    path('form_api/', views.product_form, name='form_api'),
+    path('buscar_productos/', views.product_search, name='buscar_productos'),
 ]
