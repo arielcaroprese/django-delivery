@@ -3,17 +3,20 @@
 {% load static %}
 
 {% block title %}
-    Agregar productos
+    Agregar producto
 {% endblock title %}
+
+{% block header_title %}
+    Agregar producto
+{% endblock header_title %}
 
 {% block main %}
 
 <form action="" method="POST">
     {% csrf_token  %}
-    <p>Título de producto:</p>
-    <input type="text" name="title">
-    <p>Precio</p>
-    <input type="number" name="price">
+    <table>
+        {{ form.as_table }}
+    </table>
     <input type="submit" value="Guardar">
 </form>
 

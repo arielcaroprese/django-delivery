@@ -1,0 +1,23 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Agregar categoría
+{% endblock title %}
+
+{% block header_title %}
+    Agregar categoría
+{% endblock header_title %}
+
+{% block main %}
+
+<form action="" method="POST">
+    {% csrf_token  %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Guardar">
+</form>
+
+{% endblock main %}

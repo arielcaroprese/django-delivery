@@ -3,8 +3,12 @@
 {% load static %}
 
 {% block title %}
-    Agregar productos
+    Agregar cupón
 {% endblock title %}
+
+{% block header_title %}
+    Agregar cupón
+{% endblock header_title %}
 
 {% block main %}
 
@@ -13,6 +17,7 @@
     <table>
         {{ form.as_table }}
     </table>
-    <input type="submit" value="Buscar">
+    <input type="submit" value="Guardar">
 </form>
+
 {% endblock main %}

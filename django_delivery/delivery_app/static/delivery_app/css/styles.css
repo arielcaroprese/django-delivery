@@ -1,4 +1,42 @@
 @charset "UTF-8";
+
+/* CUSTOM CSS */
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 64px 5%;
+}
+
+.product-list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3.33%;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: solid 1px black;
+  width: 30%;
+  margin-bottom: 3.33%;
+  padding: 20px;
+  text-align: center;
+}
+
+.product-title {
+  font-size: 16px;
+}
+
+.product-price {
+  font-size: 20px;
+  font-weight: 600;
+}
+
 /*!
 * Start Bootstrap - One Page Wonder v6.0.6 (https://startbootstrap.com/theme/one-page-wonder)
 * Copyright 2013-2023 Start Bootstrap
@@ -10,6 +48,8 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -10860,8 +10900,7 @@ header.masthead {
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
-  background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%);
-  background-repeat: no-repeat;
+  background-image: url("../assets/img/portada.jpg");
   background-position: center center;
   background-attachment: scroll;
   background-size: cover;

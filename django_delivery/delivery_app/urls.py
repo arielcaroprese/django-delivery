@@ -19,7 +19,8 @@ from delivery_app import views
 
 urlpatterns = [
     path('', views.inicio , name='inicio'),
-    path('formulario/', views.formulario, name='formulario'),
-    path('form_api/', views.product_form, name='form_api'),
-    path('buscar_productos/', views.product_search, name='buscar_productos'),
+    path('agregar_producto/', views.product_form, name='agregar_producto'),
+    path('agregar_cupon/', views.coupon_form, name='agregar_cupon'),
+    path('agregar_categoria/', views.category_form, name='agregar_categoria'),
+    path('buscar_productos/', views.product_search, name='buscar_productos')
 ]

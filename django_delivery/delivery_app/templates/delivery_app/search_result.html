@@ -1,0 +1,20 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Agregar productos
+{% endblock title %}
+
+{% block main %}
+
+<section class="product-list-container">
+{% for producto in productos %}
+        <div class="product-container">
+            <p class="product-title">{{ producto.title }}</p>
+            <p class="product-price">${{ producto.price }}</p>
+        </div>
+{% endfor %}
+</section>
+
+{% endblock main %}

@@ -4,6 +4,7 @@ from django.db import models
 class Products(models.Model):
     title = models.CharField(max_length=64)
     price = models.IntegerField()
+    category_id = models.IntegerField()
 
     def __str__(self):
         return f'{self.title} - Precio: ${self.price}'
