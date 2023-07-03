@@ -1,0 +1,25 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Registro de usuario
+{% endblock title %}
+
+{% block header_title %}
+    Registro de usuario
+{% endblock header_title %}
+
+{% block main %}
+
+    <h1>Registro de usuario</h1>
+
+    <form action="" method="POST">
+        {% csrf_token  %}
+        <table>
+            {{ form.as_p }}
+        </table>
+        <input type="submit" value="Registrar">
+    </form>
+
+{% endblock main %}

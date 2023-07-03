@@ -1,0 +1,25 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Iniciar Sesión
+{% endblock title %}
+
+{% block header_title %}
+Iniciar Sesión
+{% endblock header_title %}
+
+{% block main %}
+
+    <h1>Iniciar Sesión</h1>
+
+    <form action="" method="POST">
+        {% csrf_token  %}
+        <table>
+            {{ form.as_p }}
+        </table>
+        <input type="submit" value="Iniciar Sesión  ">
+    </form>
+
+{% endblock main %}

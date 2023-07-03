@@ -1,0 +1,36 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Productos
+{% endblock title %}
+
+{% block header_title %}
+    Productos
+{% endblock header_title %}
+
+{% block main %}
+
+    <h1>Productos</h1>
+
+    <div class="row">
+        {% for product in object_list %}
+        <a class="col" href="{% url 'ProductDetail' product.id %}">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">${{product.price}}</h6>
+                    <p class="card-text">{{product.description}}</p>
+                    {% if request.user.is_staff %}
+                    <a href="{% url 'ProductUpdate' product.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'ProductDelete' product.id %}" class="btn btn-danger">Eliminar</a>
+                    {% endif %}
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+{% endblock main %}

@@ -24,15 +24,33 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
             <div class="container px-5">
-                <a class="navbar-brand" href="{% url 'inicio'%}">Restaurant App</a>
+                <a class="navbar-brand" href="{% url 'home'%}">Carta Online</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'inicio'%}">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'agregar_producto'%}">Agregar producto</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'agregar_categoria'%}">Agregar categoría</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'agregar_cupon'%}">Agregar Cupón</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'buscar_productos'%}">Buscar Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'home'%}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about'%}">Sobre Mi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'ProductList'%}">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'CategoryList'%}">Categorías</a></li>
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_staff %}
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Administración
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url 'ProductCreate'%}">Crear producto</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'CategoryCreate'%}">Crear Categoría</a>
+                            </div>
+                          </div>
+                        {% endif %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'user_detail' request.user.username%}"><img width="30px" height="30px" src="{{request.user.usermeta.avatar.url}}"><span>{{request.user.username}}!</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'user_logout'%}">Cerrar Sesión</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'user_register'%}">Registrarme</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'user_login'%}">Iniciar Sesión</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -51,9 +69,11 @@
         </main>
         <!-- Footer-->
         <footer class="py-5 bg-black">
-            <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Your Website 2023</p></div>
+            <div class="container px-5"><p class="m-0 text-center text-white small">Esteban Ariel Caroprese - 2023</p></div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> 
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -15,12 +15,36 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from delivery_app import views
+from delivery_app import views, class_views
 
 urlpatterns = [
-    path('', views.inicio , name='inicio'),
-    path('agregar_producto/', views.product_form, name='agregar_producto'),
-    path('agregar_cupon/', views.coupon_form, name='agregar_cupon'),
-    path('agregar_categoria/', views.category_form, name='agregar_categoria'),
+    path('', class_views.CategoryListView.as_view() , name='home'),
+    path('sobre_mi/', views.about , name='about'),
+]
+
+# Productos
+
+urlpatterns += [
+    path('productos', class_views.ProductListView.as_view(), name='ProductList'),
+    path('producto/<pk>/', class_views.ProductDetailView.as_view() , name='ProductDetail'),
+    path('crear_producto/', class_views.ProductCreateView.as_view() , name='ProductCreate'),
+    path('editar_producto/<pk>', class_views.ProductUpdateView.as_view() , name='ProductUpdate'),
+    path('eliminar_producto/<pk>', class_views.ProductDeleteView.as_view() , name='ProductDelete'),
     path('buscar_productos/', views.product_search, name='buscar_productos')
+]
+
+# Categorías
+
+urlpatterns += [
+    path('categorias', class_views.CategoryListView.as_view(), name='CategoryList'),
+    path("categoria/<category_id>/", class_views.CategoryProductsListView.as_view(), name='CategoryProductsList'),
+    path('crear_categoria/', class_views.CategoryCreateView.as_view() , name='CategoryCreate'),
+    path('editar_categoria/<pk>', class_views.CategoryUpdateView.as_view() , name='CategoryUpdate'),
+    path('eliminar_categoria/<pk>', class_views.CategoryDeleteView.as_view() , name='CategoryDelete'),
+]
+
+# Reseñas
+
+urlpatterns += [
+    path("crear_resena/<product_id>", class_views.ReviewCreateView.as_view(), name='ReviewCreate'),
 ]

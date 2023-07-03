@@ -1,0 +1,22 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Eliminar categoría
+{% endblock title %}
+
+{% block header_title %}
+    Eliminar categoría
+{% endblock header_title %}
+
+{% block main %}
+
+    <h1>Eliminar producto</h1>
+    <form method="POST">{% csrf_token %}
+        <p>¿Desea eliminar la categoría "{{ object }}"?</p>
+        <input type="submit" value="Confirmar">
+    </form>
+
+
+{% endblock main %}

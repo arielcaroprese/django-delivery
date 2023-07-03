@@ -1,0 +1,25 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Crear categoría
+{% endblock title %}
+
+{% block header_title %}
+    Crear categoría
+{% endblock header_title %}
+
+{% block main %}
+
+    <h1>Crear categoría</h1>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token  %}
+        <table>
+            {{ form.as_p }}
+        </table>
+        <input type="submit" value="Guardar">
+    </form>
+
+{% endblock main %}

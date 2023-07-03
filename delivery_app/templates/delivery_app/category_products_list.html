@@ -3,11 +3,11 @@
 {% load static %}
 
 {% block title %}
-    Resultados de búsqueda
+    productos
 {% endblock title %}
 
 {% block header_title %}
-    Resultados de búsqueda
+    Productos
 {% endblock header_title %}
 
 {% block main %}
@@ -21,7 +21,7 @@
             <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{product.title}}</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">{{product.price}}</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">${{product.price}}</h6>
                 <p class="card-text">{{product.description}}</p>
                 {% if request.user.is_staff %}
                 <a href="{% url 'ProductUpdate' product.id %}" class="btn btn-primary">Editar</a>

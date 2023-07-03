@@ -1,0 +1,25 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Editar Usuario
+{% endblock title %}
+
+{% block header_title %}
+    Editar Usuario
+{% endblock header_title %}
+
+{% block main %}
+
+    <h1>Editar Usuario</h1>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token  %}
+        <table>
+            {{ form.as_p }}
+        </table>
+        <input type="submit" value="Guardar">
+    </form>
+
+{% endblock main %}

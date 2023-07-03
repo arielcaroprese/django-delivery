@@ -1,0 +1,22 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Buscar productos
+{% endblock title %}
+
+{% block header_title %}
+    Buscar productos
+{% endblock header_title %}
+
+{% block main %}
+
+    <h1>Eliminar producto</h1>
+    <form method="POST">{% csrf_token %}
+        <p>¿Desea eliminar el producto "{{ object }}"?</p>
+        <input type="submit" value="Confirmar">
+    </form>
+
+
+{% endblock main %}

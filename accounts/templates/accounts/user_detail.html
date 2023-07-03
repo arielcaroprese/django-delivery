@@ -1,0 +1,21 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Perfil de usuario
+{% endblock title %}
+
+{% block header_title %}
+    Perfil de usuario
+{% endblock header_title %}
+
+{% block main %}
+
+    <h1>Perfil de usuario</h1>
+    <img width="30%" src="{{user.usermeta.avatar.url}}">
+    <p>{{user.first_name}} {{user.last_name}}</p>
+    <p>Email: {{user.email}}<p>
+    <a href="{% url 'user_update'%}">Editar Perfil</a>    
+
+{% endblock main %}

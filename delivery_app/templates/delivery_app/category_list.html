@@ -1,0 +1,34 @@
+{% extends 'delivery_app/global.html' %}
+
+{% load static %}
+
+{% block title %}
+    Carta Online
+{% endblock title %}
+
+{% block header_title %}
+    ¡Bienvenidos!
+{% endblock header_title %}
+
+{% block main %}
+
+    <h1>Categorías</h1>
+
+    <div class="row">
+        {% for category in object_list %}
+            <a class="col" href="{% url 'CategoryProductsList' category.id %}">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top img-fluid" src="{{category.image.url}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{category.title}}</h5>
+                        {% if request.user.is_staff %}
+                        <a href="{% url 'CategoryUpdate' category.id %}" class="btn btn-primary">Editar</a>
+                        <a href="{% url 'CategoryDelete' category.id %}" class="btn btn-danger">Eliminar</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+{% endblock main %}
